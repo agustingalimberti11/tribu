@@ -1,0 +1,892 @@
+/* ============================================
+   VARIABLES CSS Y CONFIGURACIÓN GLOBAL
+   ============================================ */
+:root {
+    --primary-color: #22a616;
+    --primary-dark: #1a7f11;
+    --secondary-color: #28a745;
+    --text-color: #333;
+    --bg-light: #f8f9fa;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
+    --border-radius: 10px;
+    --transition: all 0.3s ease;
+}
+
+/* Reset y Base - MOBILE FIRST */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #fff;
+    font-size: 16px; /* Base móvil */
+}
+
+/* ============================================
+   HEADER Y NAVEGACIÓN - MOBILE FIRST
+   ============================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    padding: 0.75rem 0;
+}
+
+header .logotipo {
+    width: 8rem; /* Más pequeño en móvil */
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+header .logotipo:hover {
+    transform: scale(1.05);
+}
+
+/* Navegación móvil - oculta por defecto */
+nav {
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Columna en móvil */
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+nav .nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition);
+    padding: 0.75rem 1rem;
+    display: block;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav .nav-link:hover::after,
+nav .nav-link.active::after {
+    width: 100%;
+}
+
+nav .nav-link:hover,
+nav .nav-link.active {
+    color: var(--primary-color);
+    background-color: var(--bg-light);
+}
+
+/* Botón hamburguesa para móvil */
+.navbar-toggler {
+    display: block;
+    background: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.navbar-toggler-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-color);
+    position: relative;
+    transition: var(--transition);
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    bottom: -8px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+/* Menú colapsable en móvil */
+.navbar-collapse {
+    display: none;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.navbar-collapse.show {
+    display: block;
+}
+
+/* ============================================
+   TÍTULOS Y TEXTO - MOBILE FIRST
+   ============================================ */
+.titulo-principal {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 1.75rem; /* Móvil */
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.5rem; /* Móvil */
+    margin-bottom: 0.875rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.25rem; /* Móvil */
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+h4, h5, h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   CONTENEDORES Y LAYOUT - MOBILE FIRST
+   ============================================ */
+.contenedor {
+    display: flex;
+    flex-direction: column; /* Columna en móvil */
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem; /* Menos padding en móvil */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-md);
+    text-align: center; /* Centrado en móvil */
+}
+
+.contenedor > div {
+    width: 100%;
+}
+
+.contenedor img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.contenedor img:hover {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   TARJETAS (CARDS) - MOBILE FIRST
+   ============================================ */
+.tarjetas {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 1.5rem;
+    padding: 1rem;
+    margin: 1.5rem 0;
+}
+
+.tarjeta {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: var(--border-radius);
+    padding: 1.25rem; /* Menos padding en móvil */
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tarjeta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.tarjeta:hover::before {
+    left: 100%;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover img {
+    transform: scale(1.05);
+}
+
+.tarjeta button {
+    width: 100%;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    color: white;
+    font-size: 1rem; /* Más pequeño en móvil */
+    font-weight: 600;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    touch-action: manipulation; /* Mejor respuesta táctil */
+}
+
+.tarjeta button:hover,
+.tarjeta button:active {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(34, 166, 22, 0.4);
+}
+
+/* ============================================
+   FOOTER - MOBILE FIRST
+   ============================================ */
+.footer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem 1rem; /* Menos padding en móvil */
+    margin-top: 3rem;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    text-align: center; /* Centrado en móvil */
+}
+
+.footer p {
+    margin: 0 0 1rem 0; /* Margen inferior en móvil */
+    font-weight: 500;
+}
+
+.footer-icon {
+    width: 2.5rem; /* Más pequeño en móvil */
+    height: auto;
+    border-radius: 50%;
+    transition: var(--transition);
+    filter: brightness(0) invert(1);
+    margin: 0 0.5rem;
+}
+
+.footer-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.8));
+}
+
+/* ============================================
+   BOOTSTRAP PERSONALIZACIÓN - MOBILE FIRST
+   ============================================ */
+/* Cards de Bootstrap */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 1rem; /* Más compacto en móvil */
+    font-size: 1rem;
+}
+
+/* Botones de Bootstrap */
+.btn {
+    padding: 0.625rem 1.25rem; /* Más compacto en móvil */
+    font-size: 0.95rem;
+    touch-action: manipulation;
+    min-height: 44px; /* Tamaño mínimo táctil */
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-success:hover,
+.btn-success:active {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 166, 22, 0.4);
+}
+
+/* Formularios */
+.form-control,
+.form-select {
+    font-size: 1rem; /* Evita zoom en iOS */
+    padding: 0.75rem;
+    min-height: 44px; /* Tamaño mínimo táctil */
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(34, 166, 22, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Nav Tabs */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+    flex-wrap: wrap; /* Permite wrap en móvil */
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-color);
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: var(--transition);
+    padding: 0.75rem 0.5rem; /* Más compacto en móvil */
+    font-size: 0.9rem;
+}
+
+.nav-tabs .nav-link:hover {
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    background-color: transparent;
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Badges */
+.badge {
+    padding: 0.4em 0.6em; /* Más compacto en móvil */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+}
+
+/* Progress Bar */
+.progress {
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+}
+
+.progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+/* List Groups */
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+    transition: var(--transition);
+    padding: 1rem; /* Más espacio táctil */
+}
+
+.list-group-item:hover {
+    background-color: var(--bg-light);
+    transform: translateX(5px);
+}
+
+.list-group-item-action {
+    cursor: pointer;
+}
+
+/* Container spacing móvil */
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* ============================================
+   ANIMACIONES Y EFECTOS
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card,
+.tarjeta {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   MEDIA QUERIES - MOBILE FIRST (min-width)
+   ============================================ */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    body {
+        font-size: 16px;
+    }
+
+    .contenedor {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.75rem;
+        padding: 1.25rem;
+    }
+
+    .footer {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .footer-icon {
+        width: 3rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    header {
+        padding: 1rem 0;
+    }
+
+    header .logotipo {
+        width: 10rem;
+    }
+
+    /* Navegación horizontal en tablet+ */
+    nav ul {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    nav .nav-link {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+    }
+
+    nav .nav-link:hover {
+        background-color: transparent;
+    }
+
+    /* Ocultar botón hamburguesa en tablet+ */
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-collapse {
+        display: block !important;
+        margin-top: 0;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h2 {
+        font-size: 1.875rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .contenedor {
+        flex-direction: row; /* Fila en tablet+ */
+        text-align: left; /* Alineación izquierda */
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .contenedor img {
+        max-width: 350px;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .tarjeta {
+        padding: 1.5rem;
+    }
+
+    .tarjeta button {
+        font-size: 1.1rem;
+    }
+
+    .footer {
+        padding: 2rem;
+        text-align: left;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .card-header {
+        padding: 1.25rem;
+        font-size: 1.1rem;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    body {
+        font-size: 17px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .contenedor {
+        padding: 2.5rem;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    nav ul {
+        gap: 2rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .contenedor {
+        padding: 3rem;
+    }
+}
+
+/* ============================================
+   UTILIDADES ADICIONALES
+   ============================================ */
+.shadow-custom {
+    box-shadow: var(--shadow-lg);
+}
+
+.text-primary-custom {
+    color: var(--primary-color);
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+/* Transiciones suaves para todos los elementos interactivos */
+a, button, input, select, textarea {
+    transition: var(--transition);
+}
+
+/* Mejora de accesibilidad */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Optimizaciones para touch */
+@media (hover: none) and (pointer: coarse) {
+    /* Dispositivos táctiles */
+    .tarjeta:hover {
+        transform: none; /* Sin transform en hover en móvil */
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* ============================================
+   DIMENSIONES FIJAS PARA IMÁGENES
+   ============================================ */
+
+/* Imágenes en tarjetas - MOBILE FIRST */
+.tarjeta img {
+    width: 100%;
+    height: 200px; /* Altura fija en móvil */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Imágenes del contenedor principal */
+.contenedor img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 250px; /* Altura mínima en móvil */
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Logo del header */
+header .logotipo {
+    width: 8rem;
+    height: auto;
+    max-height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+/* Iconos del footer */
+.footer-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: var(--transition);
+    filter: brightness(0) invert(1);
+    margin: 0 0.5rem;
+    display: inline-block;
+}
+
+/* Imágenes en cards de Bootstrap */
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Altura fija */
+    object-fit: cover;
+    display: block;
+}
+
+/* Imágenes en detalle de evento */
+.card img.card-img-top {
+    height: 400px; /* Más grande para detalle */
+}
+
+/* Imágenes pequeñas (avatars, etc) */
+img.rounded-circle {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Imágenes en listas de eventos similares */
+.card .row img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Media queries para ajustar dimensiones en pantallas grandes */
+@media (min-width: 768px) {
+    .tarjeta img {
+        height: 220px; /* Más altura en tablet */
+    }
+
+    .contenedor img {
+        min-height: 300px;
+        max-height: 450px;
+        max-width: 400px;
+    }
+
+    header .logotipo {
+        width: 10rem;
+        max-height: 80px;
+    }
+
+    .footer-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .card-img-top {
+        height: 250px;
+    }
+
+    .card img.card-img-top {
+        height: 450px;
+    }
+
+    img.rounded-circle {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (min-width: 992px) {
+    .tarjeta img {
+        height: 240px; /* Más altura en desktop */
+    }
+
+    .contenedor img {
+        min-height: 350px;
+        max-height: 500px;
+        max-width: 450px;
+    }
+
+    .card-img-top {
+        height: 280px;
+    }
+
+    .card img.card-img-top {
+        height: 500px;
+    }
+}
+
+/* Asegurar que todas las imágenes tengan dimensiones */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Prevenir imágenes rotas */
+img:not([src]),
+img[src=""] {
+    display: none;
+}
+

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Evento - TRIBU</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="container-fluid bg-white shadow-sm py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <a href="../index.html">
+                        <img class="logotipo" src="../img/logo.png" alt="Logo Tribu">
+                    </a>
+                </div>
+                <nav class="col-md-9">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="explora-eventos.html">Explorá Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="registro.html">Inicio de Sesión / Registrate</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h1 class="card-title mb-0 text-center">Crear Nuevo Evento</h1>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="crearEventoForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <!-- Título del Evento -->
+                                <div class="col-12">
+                                    <label for="tituloEvento" class="form-label">Título del Evento</label>
+                                    <input type="text" class="form-control" id="tituloEvento" placeholder="Ej: Partido de fútbol entre amigos" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa un título para el evento.
+                                    </div>
+                                </div>
+
+                                <!-- Descripción -->
+                                <div class="col-12">
+                                    <label for="descripcion" class="form-label">Descripción</label>
+                                    <textarea class="form-control" id="descripcion" rows="4" placeholder="Describe tu evento..." required></textarea>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa una descripción del evento.
+                                    </div>
+                                </div>
+
+                                <!-- Fecha y Hora -->
+                                <div class="col-md-6">
+                                    <label for="fecha" class="form-label">Fecha</label>
+                                    <input type="date" class="form-control" id="fecha" required>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona una fecha.
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="hora" class="form-label">Hora</label>
+                                    <input type="time" class="form-control" id="hora" required>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona una hora.
+                                    </div>
+                                </div>
+
+                                <!-- Ubicación -->
+                                <div class="col-12">
+                                    <label for="ubicacion" class="form-label">Ubicación</label>
+                                    <input type="text" class="form-control" id="ubicacion" placeholder="Ej: Cancha Municipal N°3, La Rioja" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa una ubicación.
+                                    </div>
+                                </div>
+
+                                <!-- Categoría -->
+                                <div class="col-md-6">
+                                    <label for="categoria" class="form-label">Categoría</label>
+                                    <select class="form-select" id="categoria" required>
+                                        <option value="">Selecciona una categoría</option>
+                                        <option value="deportes">Deportes</option>
+                                        <option value="social">Social</option>
+                                        <option value="cultural">Cultural</option>
+                                        <option value="educativo">Educativo</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona una categoría.
+                                    </div>
+                                </div>
+
+                                <!-- Capacidad Máxima -->
+                                <div class="col-md-6">
+                                    <label for="capacidad" class="form-label">Capacidad Máxima</label>
+                                    <input type="number" class="form-control" id="capacidad" min="2" max="100" value="10" required>
+                                    <div class="invalid-feedback">
+                                        La capacidad debe ser entre 2 y 100 personas.
+                                    </div>
+                                </div>
+
+                                <!-- Imagen del Evento -->
+                                <div class="col-12">
+                                    <label for="imagenEvento" class="form-label">Imagen del Evento</label>
+                                    <input type="file" class="form-control" id="imagenEvento" accept="image/*">
+                                    <small class="form-text text-muted">Formatos aceptados: JPG, PNG, GIF (máx. 5MB)</small>
+                                </div>
+
+                                <!-- Requisitos -->
+                                <div class="col-12">
+                                    <label class="form-label">Requisitos</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="requisito1" value="equipo">
+                                        <label class="form-check-label" for="requisito1">
+                                            Traer equipo necesario
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="requisito2" value="nivel">
+                                        <label class="form-check-label" for="requisito2">
+                                            Nivel básico requerido
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="requisito3" value="pago">
+                                        <label class="form-check-label" for="requisito3">
+                                            Requiere pago
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botones -->
+                            <div class="row mt-4">
+                                <div class="col-12 d-flex gap-2 justify-content-end">
+                                    <a href="explora-eventos.html" class="btn btn-secondary">Cancelar</a>
+                                    <button type="submit" class="btn btn-success">Crear Evento</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer container-fluid bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">Todos los derechos reservados</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://ar.linkedin.com/in/agustingalimberti" target="_blank" class="me-3">
+                        <img src="../img/linkedin.jpg" alt="Logo Linkedin" class="footer-icon">
+                    </a>
+                    <a href="https://www.instagram.com/galimberty/" target="_blank">
+                        <img src="../img/instagram.png" alt="Logo Instagram" class="footer-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        // Validación y fecha mínima
+        (function() {
+            'use strict';
+            var form = document.getElementById('crearEventoForm');
+            var fechaInput = document.getElementById('fecha');
+            
+            // Establecer fecha mínima como hoy
+            var today = new Date().toISOString().split('T')[0];
+            fechaInput.setAttribute('min', today);
+            
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        })();
+    </script>
+</body>
+</html>
