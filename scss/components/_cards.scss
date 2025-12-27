@@ -1,0 +1,176 @@
+// ============================================
+// TARJETAS (CARDS)
+// ============================================
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: 1fr; // Una columna en móvil
+    gap: $spacing-lg;
+    padding: $spacing-md;
+    margin: $spacing-lg 0;
+    
+    @include respond-to(sm) {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.75rem;
+        padding: 1.25rem;
+    }
+    
+    @include respond-to(md) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: $spacing-xl;
+        padding: $spacing-xl;
+    }
+    
+    @include respond-to(lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.tarjeta {
+    background: $gradient-card;
+    border-radius: $border-radius;
+    padding: 1.25rem; // Menos padding en móvil
+    @include shadow(md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @include transition();
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    animation: fadeInUp 0.5s ease-out forwards;
+    
+    @include respond-to(md) {
+        padding: $spacing-lg;
+    }
+    
+    // Efecto shine con animación
+    @include shine-effect();
+    
+    // Animación de entrada escalonada usando operadores
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.1}s;
+        }
+    }
+    
+    &:hover {
+        @include transform(translateY(-5px) scale(1.02));
+        @include shadow(lg);
+        border-color: $primary-color;
+    }
+    
+    // Transición suave al hacer click
+    &:active {
+        @include transform(translateY(-2px) scale(0.98));
+    }
+    
+    img {
+        width: 100%;
+        height: $img-height-mobile;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: $spacing-md;
+        @include transition($transition-transform);
+        display: block;
+        
+        @include respond-to(md) {
+            height: $img-height-tablet;
+        }
+        
+        @include respond-to(lg) {
+            height: $img-height-desktop;
+        }
+        
+        &:hover {
+            @include transform(scale(1.05));
+        }
+    }
+    
+    button {
+        width: 100%;
+        background: $gradient-primary;
+        color: $white;
+        font-size: 1rem; // Más pequeño en móvil
+        font-weight: $font-weight-semibold;
+        border: none;
+        padding: $spacing-sm;
+        border-radius: 8px;
+        cursor: pointer;
+        @include transition();
+        margin-top: auto;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        @include touch-target();
+        
+        @include respond-to(md) {
+            font-size: 1.1rem;
+        }
+        
+        &:hover,
+        &:active {
+            background: $gradient-primary-hover;
+            @include transform(scale(1.02));
+            @include shadow(lg);
+        }
+    }
+}
+
+// Cards de Bootstrap
+.card {
+    border: none;
+    border-radius: $border-radius;
+    @include transition();
+    overflow: hidden;
+    animation: fadeInUp 0.5s ease-out forwards;
+    
+    &:hover {
+        @include shadow(lg);
+        @include transform(translateY(-3px));
+    }
+    
+    .card-img-top {
+        width: 100%;
+        height: $img-height-mobile;
+        object-fit: cover;
+        display: block;
+        
+        @include respond-to(md) {
+            height: 250px;
+        }
+        
+        @include respond-to(lg) {
+            height: 280px;
+        }
+    }
+    
+    // Imágenes en detalle de evento
+    img.card-img-top {
+        height: $img-detail-height-mobile;
+        
+        @include respond-to(md) {
+            height: 450px;
+        }
+        
+        @include respond-to(lg) {
+            height: $img-detail-height-desktop;
+        }
+    }
+    
+    .card-header {
+        background: $gradient-primary;
+        color: $white;
+        border: none;
+        font-weight: $font-weight-semibold;
+        padding: $spacing-md; // Más compacto en móvil
+        font-size: 1rem;
+        
+        @include respond-to(md) {
+            padding: 1.25rem;
+            font-size: 1.1rem;
+        }
+    }
+}
+

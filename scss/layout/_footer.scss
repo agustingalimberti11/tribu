@@ -1,0 +1,49 @@
+// ============================================
+// FOOTER
+// ============================================
+
+.footer {
+    background: $gradient-footer;
+    color: $white;
+    padding: $spacing-lg $spacing-md;
+    margin-top: $spacing-xxl;
+    border-radius: $border-radius $border-radius 0 0;
+    text-align: center; // Centrado en móvil
+    
+    @include respond-to(md) {
+        padding: $spacing-xl;
+        text-align: left;
+    }
+    
+    p {
+        margin: 0 0 $spacing-md 0; // Margen inferior en móvil
+        font-weight: $font-weight-medium;
+        
+        @include respond-to(md) {
+            margin: 0;
+        }
+    }
+    
+    .footer-icon {
+        width: $footer-icon-size-mobile;
+        height: $footer-icon-size-mobile;
+        object-fit: cover;
+        border-radius: $border-radius-circle;
+        @include transition();
+        filter: brightness(0) invert(1);
+        margin: 0 $spacing-xs;
+        display: inline-block;
+        
+        @include respond-to(md) {
+            width: $footer-icon-size-desktop;
+            height: $footer-icon-size-desktop;
+        }
+        
+        &:hover {
+            @include transform(scale(1.1) rotate(5deg));
+            filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+        }
+    }
+}
+
+

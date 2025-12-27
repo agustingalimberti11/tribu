@@ -1,0 +1,95 @@
+// ============================================
+// FORMULARIOS
+// ============================================
+
+.form-control,
+.form-select {
+    font-size: 1rem; // Evita zoom en iOS
+    padding: $spacing-sm;
+    @include touch-target();
+    @include transition();
+    @include focus-visible();
+    
+    &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+}
+
+.form-label {
+    font-weight: $font-weight-medium;
+    color: $text-color;
+    margin-bottom: $spacing-xs;
+    font-size: 0.95rem;
+}
+
+.form-check-input {
+    @include transition();
+    cursor: pointer;
+    
+    &:checked {
+        background-color: $primary-color;
+        border-color: $primary-color;
+    }
+    
+    &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.25);
+    }
+}
+
+.form-check-label {
+    cursor: pointer;
+}
+
+// Validación de formularios
+.needs-validation {
+    .form-control,
+    .form-select {
+        &:invalid {
+            border-color: #dc3545;
+        }
+        
+        &:valid {
+            border-color: #28a745;
+        }
+    }
+}
+
+.was-validated {
+    .form-control,
+    .form-select {
+        &:invalid {
+            border-color: #dc3545;
+            
+            &:focus {
+                border-color: #dc3545;
+                box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+            }
+        }
+        
+        &:valid {
+            border-color: #28a745;
+            
+            &:focus {
+                border-color: #28a745;
+                box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+            }
+        }
+    }
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .form-select:invalid ~ .invalid-feedback {
+    display: block;
+}
+
+

@@ -1,0 +1,76 @@
+// ============================================
+// CONTENEDORES Y LAYOUT
+// ============================================
+
+.contenedor {
+    display: flex;
+    flex-direction: column; // Columna en móvil
+    align-items: center;
+    gap: $spacing-lg;
+    padding: $spacing-lg $spacing-md; // Menos padding en móvil
+    background: $gradient-container;
+    border-radius: $border-radius;
+    margin: $spacing-lg 0;
+    @include shadow(md);
+    text-align: center; // Centrado en móvil
+    
+    @include respond-to(md) {
+        flex-direction: row; // Fila en tablet+
+        text-align: left; // Alineación izquierda
+        padding: $spacing-xl;
+        gap: $spacing-xl;
+    }
+    
+    @include respond-to(lg) {
+        padding: 2.5rem;
+    }
+    
+    @include respond-to(xl) {
+        padding: $spacing-xxl;
+    }
+    
+    > div {
+        width: 100%;
+    }
+    
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 250px; // Altura mínima en móvil
+        max-height: 400px;
+        border-radius: $border-radius;
+        object-fit: cover;
+        @include transition($transition-transform);
+        display: block;
+        
+        @include respond-to(md) {
+            min-height: 300px;
+            max-height: 450px;
+            max-width: 400px;
+        }
+        
+        @include respond-to(lg) {
+            min-height: 350px;
+            max-height: 500px;
+            max-width: 450px;
+        }
+        
+        &:hover {
+            @include transform(scale(1.05));
+        }
+    }
+}
+
+// Container spacing móvil
+.container {
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+    
+    @include respond-to(md) {
+        padding-left: $spacing-lg;
+        padding-right: $spacing-lg;
+    }
+}
+
+

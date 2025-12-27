@@ -1,0 +1,61 @@
+// ============================================
+// TIPOGRAFÍA
+// ============================================
+
+// Títulos
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    margin-bottom: $spacing-md;
+    color: $text-color;
+}
+
+h1 {
+    @include responsive-font(1.75rem, 2.25rem, 2.5rem);
+    font-weight: $font-weight-bold;
+}
+
+h2 {
+    @include responsive-font(1.5rem, 1.875rem, 2rem);
+    font-weight: $font-weight-semibold;
+}
+
+h3 {
+    @include responsive-font(1.25rem, 1.5rem, 1.75rem);
+    font-weight: $font-weight-semibold;
+}
+
+h4, h5, h6 {
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+}
+
+// Título principal personalizado
+.titulo-principal {
+    color: $primary-color;
+    font-weight: $font-weight-bold;
+}
+
+// Párrafos
+p {
+    font-size: 1rem;
+    margin-bottom: $spacing-md;
+    line-height: $line-height-base;
+}
+
+// Textos pequeños
+small, .small {
+    font-size: 0.875rem;
+}
+
+// Enlaces en textos
+p a, li a {
+    color: $primary-color;
+    text-decoration: underline;
+    
+    &:hover {
+        color: $primary-dark;
+    }
+}
+
+

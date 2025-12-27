@@ -1,0 +1,59 @@
+// ============================================
+// FUNCTIONS SCSS
+// ============================================
+
+// Calcular luminosidad de color
+@function luminance($color) {
+    $red: red($color) / 255;
+    $green: green($color) / 255;
+    $blue: blue($color) / 255;
+
+    $red: if($red < 0.03928, $red / 12.92, pow(($red + 0.055) / 1.055, 2.4));
+    $green: if($green < 0.03928, $green / 12.92, pow(($green + 0.055) / 1.055, 2.4));
+    $blue: if($blue < 0.03928, $blue / 12.92, pow(($blue + 0.055) / 1.055, 2.4));
+
+    @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
+}
+
+// Calcular contraste entre dos colores
+@function contrast($color1, $color2) {
+    $luminance1: luminance($color1);
+    $luminance2: luminance($color2);
+    $ratio: ($luminance1 + 0.05) / ($luminance2 + 0.05);
+    
+    @if $luminance1 > $luminance2 {
+        $ratio: 1 / $ratio;
+    }
+    
+    @return $ratio;
+}
+
+// Aclarar color
+@function lighten-color($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+// Oscurecer color
+@function darken-color($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
+
+// Convertir px a rem
+@function rem($pixels, $base: 16) {
+    @return ($pixels / $base) * 1rem;
+}
+
+// Convertir px a em
+@function em($pixels, $base: 16) {
+    @return ($pixels / $base) * 1em;
+}
+
+// Strip unit (eliminar unidad)
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+

@@ -1,0 +1,43 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Archivos de compilación SCSS
+css/style.css.map
+css/*.map
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos temporales
+*.tmp
+*.temp
+.cache/
+
+# Logs
+logs/
+*.log
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Build outputs (opcional, si usas un sistema de build)
+dist/
+build/
+
+

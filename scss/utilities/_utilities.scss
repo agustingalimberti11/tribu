@@ -1,0 +1,106 @@
+// ============================================
+// UTILIDADES ADICIONALES
+// ============================================
+
+// Utilidades de sombra
+.shadow-custom {
+    @include shadow(lg);
+}
+
+// Utilidades de color
+.text-primary-custom {
+    color: $primary-color;
+}
+
+.bg-gradient-primary {
+    background: $gradient-primary;
+}
+
+// Utilidades de animación con delays usando operadores
+@for $i from 1 through 10 {
+    .animate-delay-#{$i} {
+        animation-delay: #{$i * 0.1}s;
+    }
+}
+
+// Utilidades de spacing dinámicas
+$spacings: (
+    'xs': $spacing-xs,
+    'sm': $spacing-sm,
+    'md': $spacing-md,
+    'lg': $spacing-lg,
+    'xl': $spacing-xl,
+    'xxl': $spacing-xxl
+);
+
+@each $name, $value in $spacings {
+    .mt-#{$name} { margin-top: $value; }
+    .mb-#{$name} { margin-bottom: $value; }
+    .ml-#{$name} { margin-left: $value; }
+    .mr-#{$name} { margin-right: $value; }
+    .mx-#{$name} {
+        margin-left: $value;
+        margin-right: $value;
+    }
+    .my-#{$name} {
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+    .pt-#{$name} { padding-top: $value; }
+    .pb-#{$name} { padding-bottom: $value; }
+    .pl-#{$name} { padding-left: $value; }
+    .pr-#{$name} { padding-right: $value; }
+    .px-#{$name} {
+        padding-left: $value;
+        padding-right: $value;
+    }
+    .py-#{$name} {
+        padding-top: $value;
+        padding-bottom: $value;
+    }
+}
+
+// Utilidades de transformación
+.transform-hover {
+    @include transition($transition-transform);
+    
+    &:hover {
+        @include transform(scale(1.05));
+    }
+}
+
+// Utilidades de visibilidad
+.hidden-mobile {
+    display: none;
+    
+    @include respond-to(md) {
+        display: block;
+    }
+}
+
+.visible-mobile {
+    display: block;
+    
+    @include respond-to(md) {
+        display: none;
+    }
+}
+
+// Scrollbar personalizado para elementos con scroll
+.custom-scrollbar {
+    @include custom-scrollbar();
+}
+
+// Optimizaciones para touch
+@media (hover: none) and (pointer: coarse) {
+    // Dispositivos táctiles
+    .tarjeta:hover {
+        transform: none; // Sin transform en hover en móvil
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+

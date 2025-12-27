@@ -1,0 +1,98 @@
+// ============================================
+// VARIABLES SCSS
+// ============================================
+
+// Colores
+$primary-color: #22a616;
+$primary-dark: #1a7f11;
+$secondary-color: #28a745;
+$text-color: #333;
+$bg-light: #f8f9fa;
+$white: #ffffff;
+$black: #000000;
+
+// Colores Bootstrap personalizados
+$bootstrap-primary: #007bff;
+$bootstrap-primary-dark: #0056b3;
+$bootstrap-primary-darker: #004085;
+
+// Colores Footer
+$footer-gradient-start: #667eea;
+$footer-gradient-end: #764ba2;
+
+// Sombras
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+$shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.25);
+
+// Border radius
+$border-radius-sm: 5px;
+$border-radius: 10px;
+$border-radius-lg: 15px;
+$border-radius-circle: 50%;
+
+// Transiciones
+$transition-fast: all 0.2s ease;
+$transition: all 0.3s ease;
+$transition-slow: all 0.5s ease;
+$transition-transform: transform 0.3s ease;
+
+// Tipografía
+$font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-size-base-mobile: 16px;
+$font-size-base: 17px;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$line-height-base: 1.6;
+
+// Espaciado
+$spacing-xs: 0.5rem;
+$spacing-sm: 0.75rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-xxl: 3rem;
+
+// Breakpoints (Mobile First)
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Dimensiones
+$min-touch-target: 44px;
+$logo-width-mobile: 8rem;
+$logo-width-desktop: 10rem;
+$footer-icon-size-mobile: 2.5rem;
+$footer-icon-size-desktop: 3rem;
+
+// Imágenes
+$img-height-mobile: 200px;
+$img-height-tablet: 220px;
+$img-height-desktop: 240px;
+$img-detail-height-mobile: 400px;
+$img-detail-height-desktop: 500px;
+
+// Gradientes
+$gradient-primary: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+$gradient-primary-hover: linear-gradient(135deg, $primary-color 0%, $primary-dark 100%);
+$gradient-bootstrap-primary: linear-gradient(135deg, $bootstrap-primary 0%, $bootstrap-primary-dark 100%);
+$gradient-bootstrap-primary-hover: linear-gradient(135deg, $bootstrap-primary-dark 0%, $bootstrap-primary-darker 100%);
+$gradient-footer: linear-gradient(135deg, $footer-gradient-start 0%, $footer-gradient-end 100%);
+$gradient-card: linear-gradient(145deg, $white 0%, $bg-light 100%);
+$gradient-container: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+

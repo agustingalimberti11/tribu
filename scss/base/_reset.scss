@@ -1,0 +1,90 @@
+// ============================================
+// RESET Y BASE
+// ============================================
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $font-size-base-mobile;
+    scroll-behavior: smooth;
+    
+    @include respond-to(lg) {
+        font-size: $font-size-base;
+    }
+}
+
+body {
+    font-family: $font-family-base;
+    color: $text-color;
+    line-height: $line-height-base;
+    background-color: $white;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Asegurar que las imágenes sean responsive
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Prevenir imágenes rotas
+img:not([src]),
+img[src=""] {
+    display: none;
+}
+
+// Links base
+a {
+    color: inherit;
+    text-decoration: none;
+    @include transition();
+}
+
+// Listas sin estilos por defecto
+ul, ol {
+    list-style: none;
+}
+
+// Botones base
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    @include transition();
+}
+
+// Inputs base
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    @include transition();
+}
+
+// Transiciones suaves para elementos interactivos
+a, button, input, select, textarea {
+    @include transition();
+}
+
+// Mejora de accesibilidad
+:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+}
+
+// Prevenir selección en elementos decorativos
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+

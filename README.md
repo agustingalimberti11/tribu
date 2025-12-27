@@ -26,8 +26,15 @@ En Tribu creemos que las mejores experiencias se viven juntos. Unite a nuestra c
 
 ```
 tribu/
+├── scss/                  # Código fuente SCSS
+│   ├── abstracts/         # Variables, mixins, functions
+│   ├── base/              # Reset, tipografía, animaciones
+│   ├── components/        # Componentes reutilizables
+│   ├── layout/            # Header, footer, container
+│   ├── utilities/         # Utilidades y helpers
+│   └── main.scss          # Archivo principal
 ├── css/
-│   └── style.css          # Estilos personalizados
+│   └── style.css          # CSS compilado desde SCSS
 ├── img/                   # Imágenes y recursos visuales
 │   ├── logo.png
 │   ├── img-principal-index.png
@@ -108,6 +115,23 @@ El proyecto utiliza un diseño moderno y responsive que se adapta a diferentes t
 3. Registrate o iniciá sesión para acceder a todas las funcionalidades
 4. Explorá eventos disponibles o creá uno nuevo
 5. Unite a eventos que te interesen y conectá con otros usuarios
+
+## 🔨 Compilación SCSS
+
+Este proyecto utiliza SCSS para la organización de estilos. Para compilar:
+
+```bash
+# Instalar dependencias
+npm install
+
+# Compilar SCSS a CSS
+npm run sass
+
+# Modo watch (compila automáticamente)
+npm run sass:watch
+```
+
+Ver `COMPILACION.md` para más detalles.
 
 ## 🔮 Próximas Mejoras
 

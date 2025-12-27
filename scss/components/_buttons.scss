@@ -1,0 +1,108 @@
+// ============================================
+// BOTONES
+// ============================================
+
+.btn {
+    padding: 0.625rem 1.25rem; // Más compacto en móvil
+    font-size: 0.95rem;
+    @include touch-target();
+    @include transition();
+    @include focus-visible();
+    
+    @include respond-to(md) {
+        padding: $spacing-sm $spacing-lg;
+        font-size: 1rem;
+    }
+}
+
+.btn-primary {
+    @include button-gradient(
+        $bootstrap-primary,
+        $bootstrap-primary-dark,
+        $bootstrap-primary-dark,
+        $bootstrap-primary-darker
+    );
+    position: relative;
+    overflow: hidden;
+    
+    // Efecto ripple al hacer click
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    &:active::before {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.btn-success {
+    @include button-gradient(
+        $secondary-color,
+        $primary-color,
+        $primary-color,
+        $primary-dark
+    );
+    position: relative;
+    overflow: hidden;
+    
+    // Efecto ripple al hacer click
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    &:active::before {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: $white;
+    @include transition();
+    
+    &:hover,
+    &:active {
+        background-color: #5a6268;
+        transform: translateY(-2px);
+        @include shadow(md);
+    }
+}
+
+.btn-outline-primary,
+.btn-outline-danger {
+    @include transition();
+    
+    &:hover {
+        transform: translateY(-2px);
+        @include shadow(md);
+    }
+}
+
+// Optimizaciones para touch
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover {
+        transform: none; // Sin transform en hover en móvil
+    }
+}
+

@@ -1,0 +1,199 @@
+// ============================================
+// MIXINS SCSS
+// ============================================
+
+// Media Queries (Mobile First)
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == sm {
+        @media (min-width: 576px) { @content; }
+    }
+    @else if $breakpoint == md {
+        @media (min-width: 768px) { @content; }
+    }
+    @else if $breakpoint == lg {
+        @media (min-width: 992px) { @content; }
+    }
+    @else if $breakpoint == xl {
+        @media (min-width: 1200px) { @content; }
+    }
+    @else if $breakpoint == xxl {
+        @media (min-width: 1400px) { @content; }
+    }
+}
+
+// Flexbox utilities
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Transiciones
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+}
+
+// Transformaciones
+@mixin transform($transforms) {
+    transform: $transforms;
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+}
+
+// Hover con transformación
+@mixin hover-lift {
+    transition: $transition;
+    
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+// Sombras
+@mixin shadow($level: md) {
+    @if $level == sm {
+        box-shadow: $shadow-sm;
+    } @else if $level == md {
+        box-shadow: $shadow-md;
+    } @else if $level == lg {
+        box-shadow: $shadow-lg;
+    } @else if $level == xl {
+        box-shadow: $shadow-xl;
+    }
+}
+
+@mixin shadow-hover($level: lg) {
+    @include shadow($level);
+    transition: $transition;
+    
+    &:hover {
+        @include shadow(lg);
+    }
+}
+
+// Botones con gradiente
+@mixin button-gradient($start, $end, $hover-start: null, $hover-end: null) {
+    background: linear-gradient(135deg, $start 0%, $end 100%);
+    border: none;
+    transition: $transition;
+    
+    @if $hover-start and $hover-end {
+        &:hover, &:active, &:focus {
+            background: linear-gradient(135deg, $hover-start 0%, $hover-end 100%);
+            transform: translateY(-2px);
+            @include shadow(lg);
+        }
+    }
+}
+
+// Animaciones de entrada (deprecated - usar directamente la animación)
+// @mixin fade-in-up($delay: 0s) {
+//     animation: fadeInUp 0.5s ease-out $delay forwards;
+//     opacity: 0;
+// }
+
+// Gradientes de texto
+@mixin text-gradient($gradient) {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+// Pseudo-elementos para efectos
+@mixin shine-effect {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+    }
+    
+    &:hover::before {
+        left: 100%;
+    }
+}
+
+// Responsive font size
+@mixin responsive-font($mobile, $tablet, $desktop) {
+    font-size: $mobile;
+    
+    @include respond-to(md) {
+        font-size: $tablet;
+    }
+    
+    @include respond-to(lg) {
+        font-size: $desktop;
+    }
+}
+
+// Aspect ratio para imágenes
+@mixin aspect-ratio($width: 16, $height: 9) {
+    position: relative;
+    
+    &::before {
+        content: '';
+        display: block;
+        padding-top: percentage($height / $width);
+    }
+    
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// Focus visible para accesibilidad
+@mixin focus-visible {
+    &:focus-visible {
+        outline: 2px solid $primary-color;
+        outline-offset: 2px;
+    }
+}
+
+// Touch target mínimo
+@mixin touch-target($size: $min-touch-target) {
+    min-height: $size;
+    min-width: $size;
+}
+
+// Scrollbar personalizado
+@mixin custom-scrollbar($thumb-color: $primary-color, $track-color: $bg-light) {
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: $track-color;
+        border-radius: $border-radius;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $thumb-color;
+        border-radius: $border-radius;
+        
+        &:hover {
+            background: $primary-dark;
+        }
+    }
+}
+
