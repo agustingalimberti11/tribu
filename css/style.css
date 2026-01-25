@@ -158,10 +158,34 @@ nav .nav-link.active {
     display: none;
     width: 100%;
     margin-top: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem;
 }
 
 .navbar-collapse.show {
     display: block;
+}
+
+.navbar-collapse .nav {
+    flex-direction: column;
+    width: 100%;
+}
+
+.navbar-collapse .nav-item {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.navbar-collapse .nav-link {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
 }
 
 /* ============================================
@@ -597,6 +621,23 @@ p {
     .navbar-collapse {
         display: block !important;
         margin-top: 0;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    .navbar-collapse .nav {
+        flex-direction: row;
+    }
+    
+    .navbar-collapse .nav-item {
+        width: auto;
+        margin-bottom: 0;
+    }
+    
+    .navbar-collapse .nav-link {
+        width: auto;
+        text-align: center;
     }
 
     h1 {

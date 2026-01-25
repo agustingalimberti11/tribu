@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorá eventos cercanos y descubrí actividades para hacer: partidos de fútbol, mateadas, running y más. Unite a eventos reales cerca de vos en Tribu.">
+    <meta name="keywords" content="eventos cercanos, actividades, partidos fútbol, mateadas, running, eventos sociales, Argentina">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tribu.com.ar/pages/explora-eventos.html">
+    <meta property="og:title" content="Explorá Eventos - TRIBU">
+    <meta property="og:description" content="Explorá eventos cercanos y descubrí actividades para hacer: partidos de fútbol, mateadas, running y más.">
+    <meta property="og:image" content="https://tribu.com.ar/img/futbol.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tribu.com.ar/pages/explora-eventos.html">
+    <meta property="twitter:title" content="Explorá Eventos - TRIBU">
+    <meta property="twitter:description" content="Explorá eventos cercanos y descubrí actividades para hacer: partidos de fútbol, mateadas, running y más.">
+    <meta property="twitter:image" content="https://tribu.com.ar/img/futbol.jpg">
+    
     <title>Explorá Eventos - TRIBU</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -34,12 +56,12 @@
     </header>
     <main class="container my-5">
         <section>
-            <h1>Eventos Cercanos</h1>
-            <div class="d-flex justify-content-end mb-4">
+            <h1 data-aos="fade-down">Eventos Cercanos</h1>
+            <div class="d-flex justify-content-end mb-4" data-aos="fade-left">
                 <a href="crear-evento.html" class="btn btn-success">+ Crear Evento</a>
             </div>
             <section class="tarjetas">
-                <div class="tarjeta">
+                <div class="tarjeta" data-aos="fade-up" data-aos-delay="100">
                     <h2>Partido de fútbol</h2>
                     <p>📅 Domingo 2 de noviembre, 17:00 hs<br>
                         📍 Cancha Municipal N°3, La Rioja<br><br>
@@ -48,7 +70,7 @@
                     <img src="../img/futbol.jpg" alt="Fútbol entre amigos">
                     <a href="detalle-evento.html" class="btn btn-success w-100 mt-3">ÚNETE</a>
                 </div>
-                <div class="tarjeta">
+                <div class="tarjeta" data-aos="fade-up" data-aos-delay="200">
                     <h2>Mateada en el parque</h2>
                     <p>
                         📅 Sábado 8 de noviembre, 16:30 hs<br>
@@ -58,7 +80,7 @@
                     <img src="../img/mates.jpg" alt="Mates entre amigos">
                     <a href="detalle-evento.html" class="btn btn-success w-100 mt-3">ÚNETE</a>
                 </div>
-                <div class="tarjeta">
+                <div class="tarjeta" data-aos="fade-up" data-aos-delay="300">
                     <h2>Running 6km</h2>
                     <p>
                         📅 Miércoles 12 de noviembre, 7:30 hs<br>
@@ -91,7 +113,17 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
         function toggleNav() {
             const nav = document.getElementById('navbarNav');
             const toggler = document.querySelector('.navbar-toggler');

@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRIBU</title>
+    <meta name="description" content="Conectá con personas a través de actividades reales. Crea o uníte a eventos cerca de vos: corridas, partidos, lecturas y mucho más. Tribu - La plataforma para vivir experiencias juntos.">
+    <meta name="keywords" content="eventos, actividades, comunidad, deportes, lectura, running, fútbol, mates, social, Argentina">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tribu.com.ar/">
+    <meta property="og:title" content="TRIBU - Conectá con personas a través de actividades reales">
+    <meta property="og:description" content="Crea o uníte a eventos cerca de vos: corridas, partidos, lecturas y mucho más. La plataforma para vivir experiencias juntos.">
+    <meta property="og:image" content="https://tribu.com.ar/img/img-principal-index.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tribu.com.ar/">
+    <meta property="twitter:title" content="TRIBU - Conectá con personas a través de actividades reales">
+    <meta property="twitter:description" content="Crea o uníte a eventos cerca de vos: corridas, partidos, lecturas y mucho más. La plataforma para vivir experiencias juntos.">
+    <meta property="twitter:image" content="https://tribu.com.ar/img/img-principal-index.png">
+    
+    <title>TRIBU - Conectá con personas a través de actividades reales</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header class="container-fluid bg-white shadow-sm py-3">
+    <header class="container-fluid bg-white shadow-sm py-3 position-relative">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-6 col-md-3">
@@ -17,11 +39,11 @@
                         <img class="logotipo" src="./img/logo.png" alt="Logo Tribu">
                     </a>
                 </div>
-                <div class="col-6 col-md-9 d-flex justify-content-end">
-                    <button class="navbar-toggler d-md-none" type="button" aria-label="Toggle navigation" onclick="toggleNav()">
+                <div class="col-6 col-md-9 d-flex justify-content-end align-items-center">
+                    <button class="navbar-toggler d-md-none" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNav()">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <nav class="navbar-collapse" id="navbarNav">
+                    <nav class="navbar-collapse d-md-block" id="navbarNav">
                         <ul class="nav">
                             <li class="nav-item"><a class="nav-link active" href="./index.html">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="./pages/explora-eventos.html">Explorá Eventos</a></li>
@@ -34,32 +56,32 @@
     </header>
     <main>
         <section class="contenedor">
-            <div>
+            <div data-aos="fade-right" data-aos-duration="800">
                 <h1>
                     <span class="titulo-principal">Conectá con personas</span>
                     a través de actividades reales
                 </h1>
                 <h2>Crea o unite a eventos cerca de vos: corridas, partidos, lecturas y mucho más.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt necessitatibus alias est, modi libero quos quis molestias eos nihil dignissimos voluptate pariatur, in, laudantium veniam.</p>
+                <p>En Tribu encontrás la manera perfecta de conocer gente nueva mientras hacés lo que te gusta. Ya sea que quieras organizar un partido de fútbol, una mateada en el parque o una sesión de lectura, nuestra plataforma te ayuda a conectar con personas que comparten tus mismos intereses y están cerca tuyo.</p>
             </div>
-            <img src="./img/img-principal-index.png" alt="Conectá con personas a través de actividades reales">
+            <img src="./img/img-principal-index.png" alt="Conectá con personas a través de actividades reales" data-aos="fade-left" data-aos-duration="800">
         </section>
-        <section class="container my-4">
+        <section class="container my-4" data-aos="fade-up" data-aos-duration="600">
             <h2>Conectá, compartí, viví</h2>
             <p>En Tribu creemos que las mejores experiencias se viven juntos. Unite a nuestra comunidad, participá en eventos reales y descubrí nuevas formas de disfrutar tu tiempo con otras personas.</p>
         </section>
         <section class="tarjetas">
-            <div class="tarjeta">
+            <div class="tarjeta" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
                 <img src="./img/registro-index.png" alt="Registro">
                 <h3>Registrate: crea tu cuenta y completá tus intereses.</h3>
                 <a href="./pages/registro.html" class="btn btn-success w-100 mt-3">Registrarse</a>
             </div>
-            <div class="tarjeta">
+            <div class="tarjeta" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
                 <img src="./img/explora-index.png" alt="Explorá">
                 <h3>Explorá o creá eventos: encontrá actividades cerca tuyo.</h3>
                 <a href="./pages/explora-eventos.html" class="btn btn-success w-100 mt-3">Explorar Eventos</a>
             </div>
-            <div class="tarjeta">
+            <div class="tarjeta" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
                 <img src="./img/participa-index.png" alt="Participá">
                 <h3>Participá: unite, charlá con otros y disfrutá.</h3>
                 <a href="./pages/explora-eventos.html" class="btn btn-success w-100 mt-3">Ver Eventos</a>
@@ -86,7 +108,17 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
         function toggleNav() {
             const nav = document.getElementById('navbarNav');
             const toggler = document.querySelector('.navbar-toggler');
